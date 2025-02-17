@@ -1,0 +1,14 @@
+@use '../util/_mixin' as mixin;
+@use '../util/_variable' as variable;
+
+.header {
+  @include mixin.flexCenter;
+  position: relative;
+  height: 55px;
+  background: variable.$theme-white;
+
+  button {
+    position: absolute;
+    right: 20px;
+  }
+}

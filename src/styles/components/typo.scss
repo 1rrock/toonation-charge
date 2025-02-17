@@ -1,0 +1,40 @@
+@use '../util/_variable' as variable;
+
+.typo {
+  font-weight: 700;
+
+  &.xs {
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  &.s {
+    font-size: 15px;
+  }
+
+  &.m {
+    font-size: 17px;
+  }
+
+  &.lg {
+    font-size: 20px;
+  }
+
+  &.grey500 {
+    color: variable.$theme-grey500
+  }
+
+  &.grey600 {
+    color: variable.$theme-grey600
+  }
+
+  &.grey900 {
+    color: variable.$theme-grey900
+  }
+}
+
+.paragraph {
+  color: variable.$theme-grey500;
+  font-size: 13px;
+  font-weight: 500;
+}

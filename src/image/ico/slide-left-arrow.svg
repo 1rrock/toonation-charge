@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="icon" viewBox="0 0 32 32">
+    <g transform="rotate(180 16 16)">
+        <rect width="32" height="32" rx="16" style="fill: rgb(255, 255, 255); opacity: 0.5;"></rect>
+        <path d="M9.889 20.845a.866.866 0 0 1-.612-1.479l5.595-5.6-5.595-5.6A.866.866 0 0 1 10.5 6.948l6.209 6.209a.866.866 0 0 1 0 1.225l-6.209 6.21a.858.858 0 0 1-.612.253"
+              transform="translate(3.008 2.231)" style="fill: rgb(52, 58, 64);"></path>
+    </g>
+</svg>

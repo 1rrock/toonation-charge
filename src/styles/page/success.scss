@@ -1,0 +1,50 @@
+@use '../util/mixin' as mixin;
+@use '../util/_variable' as variable;
+
+.success {
+  background: variable.$theme-grey100;
+  height: 100vh;
+
+  .header {
+    background: variable.$theme-grey100;
+  }
+
+  &__container {
+    padding: 20px;
+  }
+  h2 {
+    @include mixin.flexCenter;
+    margin-bottom: 20px;
+  }
+  &__wrapper {
+    border-radius: 8px;
+    overflow: hidden;
+    background: variable.$theme-white;
+  }
+  table {
+    width: 100%;
+    text-align: left;
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    th, td {
+      height: 48px;
+      font-size: 15px;
+      border: 1px solid variable.$theme-border-color;
+      padding: 8px;
+    }
+
+    th {
+      color: variable.$theme-grey500;
+    }
+
+    .blue {
+      color: variable.$theme-blue600;
+    }
+  }
+
+  button {
+    width: 100%;
+    margin-top: 20px;
+  }
+}

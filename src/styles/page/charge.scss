@@ -1,0 +1,432 @@
+@use '../util/mixin' as mixin;
+@use '../util/_variable' as variable;
+
+.menu {
+  &__wrapper {
+    display: flex;
+  }
+
+  &__list {
+    flex: 1 1 0;
+    background: variable.$theme-grey100;
+    height: 50px;
+
+    a {
+      @include mixin.flexCenter;
+      width: 100%;
+      height: 100%;
+      &.active {
+        border-bottom: 2px solid variable.$theme-primary;
+      }
+    }
+  }
+}
+
+.cache-charge {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: variable.$theme-grey100;
+
+  section {
+    padding: 20px;
+    background: variable.$theme-white;
+  }
+
+  //section1
+  .amount {
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    &__input-wrap {
+      label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 48px;
+        padding: 14px;
+        border: 1px solid variable.$theme-border-color;
+        font-size: 15px;
+        border-radius: 8px;
+        font-weight: 700;
+      }
+
+      input {
+        flex: 1 1 0;
+        height: 24px;
+        font-weight: 700;
+        font-size: 20px;
+        color: variable.$theme-grey900;
+        border: none;
+        outline: none;
+      }
+
+      button {
+        margin-right: 16px;
+        height: 20px;
+        svg {
+          fill: variable.$theme-grey200;
+        }
+      }
+    }
+
+    &__btn-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+
+    }
+
+    .paragraph {
+      margin-top: 8px;
+    }
+
+  }
+
+  //section2
+  .payment {
+    &__header {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__body {}
+
+    &__local {
+
+      padding-top: 8px;
+      label {
+        display: flex;
+        align-items: center;
+        height: 40px;
+      }
+    }
+
+    .payment-btn {
+      position: relative;
+
+      .check {
+        position: absolute;
+        right: 14px;
+        top: 14px;
+      }
+    }
+    .center-btn {
+      &.active {
+        background: variable.$theme-blue50;
+        color: variable.$theme-blue400;
+        border: 2px solid variable.$theme-blue400;
+      }
+    }
+
+    &__prev {
+      position: absolute;
+      left: 20px;
+      @include mixin.topTranslateCenter;
+      z-index: 50;
+    }
+
+    &__next {
+      position: absolute;
+      right: 20px;
+      @include mixin.topTranslateCenter;
+      z-index: 50;
+    }
+
+    &__btn-wrap {
+      position: relative;
+      left: -20px;
+      width: calc(100% + 40px);
+      overflow-x: scroll;
+      background: variable.$theme-grey100;
+      padding: 20px 0;
+    }
+
+    &__slide {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: all .5s;
+
+      button {
+        flex-shrink: 0;
+      }
+    }
+
+    &__international {
+      padding-top: 8px;
+      border-top: 1px solid rgba(0,0,0,.1);
+      label {
+        display: flex;
+        align-items: center;
+        height: 40px;
+      }
+      input {
+        margin-right: 8px;
+      }
+    }
+
+    &__card-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    input[type='radio'] {
+      margin-right: 8px;
+      webkit-appearance: none; // 웹킷 브라우저에서 기본 스타일 제거
+      -moz-appearance: none; // 모질라 브라우저에서 기본 스타일 제거
+      appearance: none; // 기본 브라우저에서 기본 스타일 제거
+      width: 18px;
+      height: 18px;
+      border: 1px solid variable.$theme-primary; // 체크되지 않았을 때의 테두리 색상
+      border-radius: 50%;
+      outline: none; // focus 시에 나타나는 기본 스타일 제거
+      cursor: pointer;
+
+      &:checked {
+        background-color: #fff; // 체크 시 내부 원 색상
+        border: 4px solid variable.$theme-primary; // 라인이 아닌, 라인과 원 사이 색상
+      }
+    }
+  }
+
+  .charge {
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    &__footer {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .center-btn {
+      margin-top: 20px;
+      width: 100%;
+    }
+  }
+}
+
+.other-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,.5);
+  opacity: 1;
+  animation: fadeIn 1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 100;
+
+  &__close-btn {
+    flex: 1 1 0;
+  }
+
+  &__wrapper {
+    overflow-y: auto;
+    background-color: variable.$theme-white;
+    width: 100%;
+    padding: 24px 20px 20px;
+    border-radius: 8px;
+    transform: translateY(0%);
+    animation: fadeUp 1s ;
+
+    h4 {
+      font-size: 20px;
+    }
+  }
+
+  &__btn-wrap {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+
+    &--two-line {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    button {
+      img {
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.culture {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: variable.$theme-grey100;
+
+  &__pin {
+    padding: 20px;
+    background: variable.$theme-white;
+
+    h5 {
+      margin-bottom: 10px;
+    }
+  }
+  &__input-wrap {
+    display: flex;
+    gap: 10px;
+
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 48px;
+      padding: 14px;
+      border: 1px solid variable.$theme-blue100;
+      font-size: 15px;
+      border-radius: 8px;
+      font-weight: 700;
+      flex: 1 1 0;
+      background: variable.$theme-grey50;
+    }
+
+    input {
+      flex: 1 1 0;
+      height: 24px;
+      font-weight: 700;
+      border: none;
+      outline: none;
+      background: inherit;
+      color: variable.$theme-grey900;
+      font-size: 15px;
+
+      &::placeholder {
+        color: variable.$theme-grey500;
+        font-weight: 400;
+      }
+    }
+
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__check-btn {
+    width: 74px;
+    height: 48px;
+    background: variable.$theme-blue400;
+    padding: 12px;
+    font-size: 15px;
+    color: variable.$theme-white;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1px solid variable.$theme-border-color;
+
+    &:hover {
+      background: variable.$theme-blue600;
+    }
+
+    &:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__add-btn {
+    display: flex;
+    align-items: center;
+    color: variable.$theme-grey600;
+    font-size: 15px;
+    gap: 5px;
+    margin-top: 10px;
+
+    svg {
+      fill: variable.$theme-grey500;
+    }
+  }
+
+  &__info {
+    margin-top: 10px;
+    background: variable.$theme-white;
+    padding: 20px;
+    &-top {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid variable.$theme-grey300;
+      margin-bottom: 20px;
+
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    &-bottom {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__agree {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    border: 1px solid variable.$theme-border-color;
+    padding: 12px;
+    margin-top: 12px;
+    gap: 8px;
+    border-radius: 8px;
+    background: variable.$theme-white;
+
+    input[type='checkbox'] {
+      width: 20px;
+      height: 20px;
+      border-radius: 2px;
+    }
+
+  }
+
+  &__footer {
+    padding: 20px;
+    background: variable.$theme-grey100;
+    p {
+      margin-top: 10px;
+    }
+  }
+}
